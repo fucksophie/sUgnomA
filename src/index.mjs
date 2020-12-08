@@ -59,8 +59,8 @@ async function start() {
                 game.me.vote(randomPlayer)
                 debug(`Voting out ${randomPlayer.name}`)
             } else {
-                game.me.vote(game.getClientByPlayerName(config.annoy.name))
-                debug(`Voting out ${config.annoy.name}`)
+                game.me.vote(game.getClientByName(config.annoy.user))
+                debug(`Voting out ${config.annoy.user}`)
             }
         }, 20000)
     })
