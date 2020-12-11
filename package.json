@@ -1,10 +1,11 @@
 {
-  "name": "sUgnomA",
+  "name": "sugnoma",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.mjs",
   "scripts": {
-    "start": "DEBUG=* node src/index.mjs"
+    "start:linux": "DEBUG=* node .",
+    "start:win": "setx DEBUG * & node ."
   },
   "author": "lukeacat",
   "license": "MIT",

@@ -2,19 +2,28 @@
 A Funky Funny Among Bot
 ## Installation
 
-Download the bot via git or the zip, both work. Edit the config (docs below), and run the bot via
+1. Download the bot via the zip or git
+2. Unpack the zip if downloaded via zip
+3. Change `src/config.mjs` to your own config (config docs below)
+4. Then, to run the bot, if you're running Windows, the command
+to start the bot is
 ```bash
-npm run start
-```
-but to run many bots, use
-```bash
-node tooling/runMany.mjs 9
+npm run start:win
 ``` 
-This runs 9 bots.
+but if you're running linux, use
+```bash
+npm run start:linux
+```
+To run many bots (works on both linux and windows), use
+```bash
+node tooling/runMany.mjs 2
+```
+This will run 2 bots!
 
 ## Config
 `code` (String): Your game's code  
-`runTime` (Number): How many times the player is annoyed, how many times spam is sent `(message per runtime, limited to 3000 runtime for spam)`  
+`runTime` (Number): How many times the player is annoyed, how many times spam is sent (message per runtime, limited to 3000 runtime for spam)
+
 `annoy`:
 1. `annoy` (Boolean): Turn on or off annoying 
 2. `user` (String): Who to annoy
@@ -30,13 +39,17 @@ This runs 9 bots.
 2. `type` (Number): `1`: Spam random numbers, `2`: Spam custom text
 3. `message` (String): Custom text
 
+`chat`:
+1. `chat` (Boolean): Turn on or off the chat module
+2. `owner` (String): Who owns the bot
+3. `prefix` (String): Set the prefix for the chat module
+
 `meeting`:
-1. `type`: `1`: Vote a random player out, `2`: Vote annoyed player out
+1. `type` (Number): `1`: Vote a random player out, `2`: Vote annoyed player out
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

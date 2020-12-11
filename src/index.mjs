@@ -1,4 +1,4 @@
-/*jslint es6 node*/
+/* jslint es6 node */
 
 import Debug from "debug";
 import events from "events";
@@ -65,6 +65,24 @@ async function start() {
         }, 20000)
     })
 
+    game.on("chat", (player, message) => {
+        if(config.chat.chat) {
+            const args = message.split(" ");
+            const command = args.shift();
+            const prefix = config.chat.prefix;
+
+            if(player.name === config.chat.owner) {
+                if(command === prefix + "eval") {
+                    eval(args.join(" "))
+                } else if (command === prefix + "ping") {
+                    game.me.chat("sUgnomA running!")
+                } else if (command === prefix + "annoy") {
+                    config.annoy.user = args[0]
+                }
+            }
+        }
+    })
+
     game.me.once("spawn", () => {
         setInterval(async ()=>{
             const name = config.names[Math.floor(Math.random() * config.names.length)];
@@ -78,7 +96,7 @@ async function start() {
                 switch(config.spam.type) {
                     case 1:
                     default:
-                        game.me.chat(Math.floor(Math.random() * 1000))
+                        game.me.chat(Math.floor(Math.random() * 100000).toString())
                         break;
                     case 2:
                         game.me.chat(config.spam.message);
